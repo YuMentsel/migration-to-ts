@@ -1,4 +1,4 @@
-interface ISource {
+interface SourcesData {
   id: string;
   name: string;
   description: string;
@@ -8,19 +8,19 @@ interface ISource {
   country: string;
 }
 
-interface ISourcesResponse {
+interface SourcesResponse {
   status: string;
   totalResults: number;
-  sources: ISource[];
+  sources: SourcesData[];
 }
 
-interface IArticleSource {
+interface ArticleSource {
   id: string | null;
   name: string;
 }
 
-interface IArticle {
-  source: IArticleSource;
+interface Articles {
+  source: ArticleSource;
   author: string | null;
   title: string;
   description: string;
@@ -30,16 +30,16 @@ interface IArticle {
   content: string;
 }
 
-interface INewsResponse {
+interface NewsResponse {
   status: string;
   titalResults: number;
-  articles: IArticle[];
+  articles: Articles[];
 }
 
-interface IError {
+interface ErrorResponse {
   status: string;
   code: string;
   message: string;
 }
 
-export { ISourcesResponse, INewsResponse, IError };
+export { SourcesResponse, SourcesData, NewsResponse, Articles, ErrorResponse };
