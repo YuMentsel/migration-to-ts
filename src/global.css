@@ -6,6 +6,9 @@ body {
 
 header {
     padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
@@ -43,4 +46,10 @@ footer .copyright:before {
     width: 80px;
     height: auto;
     fill: white;
+}
+
+@media (max-width: 640px) {
+    header {
+        flex-direction: column;
+    }
 }

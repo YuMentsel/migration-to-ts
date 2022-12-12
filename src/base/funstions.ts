@@ -8,4 +8,10 @@ function getExistentElement<T extends HTMLElement>(selector: string, node: Docum
   return el;
 }
 
-export { isHTMLElement, getExistentElement };
+function getExistentInputElement<T extends HTMLInputElement>(selector: string): T {
+  const el = document.querySelector<T>(selector);
+  if (el == null) throw new Error(`Element not found!`);
+  return el;
+}
+
+export { isHTMLElement, getExistentElement, getExistentInputElement };
