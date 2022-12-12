@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const baseConfig = {
   entry: './src/index.ts',
@@ -21,6 +22,9 @@ const baseConfig = {
 
     new CleanWebpackPlugin(),
     new EslintPlugin({ extensions: ['ts', 'js'] }),
+    new CopyPlugin({
+      patterns: [{ from: 'src/assets', to: 'assets' }],
+    }),
   ],
   module: {
     rules: [
@@ -35,7 +39,7 @@ const baseConfig = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset',
+        type: 'asset/resource',
       },
     ],
   },
