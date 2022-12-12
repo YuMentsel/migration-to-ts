@@ -1,22 +1,27 @@
 import AppLoader from './appLoader';
+import { isHTMLElement } from '../../base/funstions';
+import { Callback } from '../../base/interfaces';
 
 class AppController extends AppLoader {
-  getSources(callback) {
+  public getSources(callback: Callback): void {
     super.getResp(
       {
         endpoint: 'sources',
+        options: {},
       },
       callback
     );
   }
 
-  getNews(e, callback) {
-    let target = e.target;
-    const newsContainer = e.currentTarget;
+  public getNews(e: Event, callback: Callback): void {
+    let target: EventTarget | null = e.target;
+    const newsContainer: EventTarget | null = e.currentTarget;
 
     while (target !== newsContainer) {
+      if (!isHTMLElement(target) || !isHTMLElement(newsContainer)) throw new Error(`Element is not HTMLElement!`);
       if (target.classList.contains('source__item')) {
-        const sourceId = target.getAttribute('data-source-id');
+        const sourceId: string | null = target.getAttribute('data-source-id');
+        if (!sourceId) return;
         if (newsContainer.getAttribute('data-source') !== sourceId) {
           newsContainer.setAttribute('data-source', sourceId);
           super.getResp(
