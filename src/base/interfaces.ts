@@ -41,9 +41,9 @@ interface ConfigResponse {
   options?: Options;
 }
 
-type Options = {
+interface Options {
   [key: string]: string;
-};
+}
 
 interface ResponseObject extends NewsResponse, SourcesResponse {}
 
