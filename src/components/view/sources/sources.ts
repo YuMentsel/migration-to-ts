@@ -3,7 +3,7 @@ import { SourcesData } from '../../../base/interfaces';
 import { isHTMLElement, getExistentElement } from '../../../base/funstions';
 
 class Sources {
-  draw(data: SourcesData[]): void {
+  draw(data: readonly SourcesData[]): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const sourceItemTemp: HTMLTemplateElement = getExistentElement<HTMLTemplateElement>('#sourceItemTemp');
 

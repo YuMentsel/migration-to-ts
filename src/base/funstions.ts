@@ -1,5 +1,5 @@
 function isHTMLElement<T>(el: T | HTMLElement): el is HTMLElement {
-  return el instanceof DocumentFragment;
+  return el instanceof EventTarget;
 }
 
 function getExistentElement<T extends HTMLElement>(selector: string, node: Document | HTMLElement = document): T {

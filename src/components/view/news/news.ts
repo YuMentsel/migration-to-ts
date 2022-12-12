@@ -3,8 +3,8 @@ import { Articles } from '../../../base/interfaces';
 import { isHTMLElement, getExistentElement } from '../../../base/funstions';
 
 class News {
-  draw(data: Articles[]): void {
-    const news: Articles[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+  draw(data: readonly Articles[]): void {
+    const news: readonly Articles[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
     const fragment: DocumentFragment = document.createDocumentFragment();
     const newsItemTemp: HTMLTemplateElement = getExistentElement<HTMLTemplateElement>('#newsItemTemp');
 

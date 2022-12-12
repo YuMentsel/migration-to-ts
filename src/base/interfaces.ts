@@ -36,10 +36,19 @@ interface NewsResponse {
   articles: Articles[];
 }
 
-interface ErrorResponse {
-  status: string;
-  code: string;
-  message: string;
+interface ConfigResponse {
+  endpoint: 'sources' | 'everything';
+  options?: Options;
 }
 
-export { SourcesResponse, SourcesData, NewsResponse, Articles, ErrorResponse };
+type Options = {
+  [key: string]: string;
+};
+
+interface ResponseObject extends NewsResponse, SourcesResponse {}
+
+interface Callback {
+  <T extends ResponseObject>(data: T): void;
+}
+
+export { SourcesResponse, SourcesData, NewsResponse, Articles, ConfigResponse, Options, ResponseObject, Callback };
