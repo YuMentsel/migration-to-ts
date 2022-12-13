@@ -13,7 +13,7 @@ class News {
       if (!isHTMLElement(newsClone)) throw new Error(`Element is not HTMLElement!`);
       if (idx % 2) newsClone.querySelector('.news__item')?.classList.add('alt');
       getExistentElement('.news__meta-photo', newsClone).style.backgroundImage = `url(${
-        item.urlToImage || '../../../assets/news_placeholder.jpg'
+        item.urlToImage || 'assets/news_placeholder.jpg'
       })`;
       getExistentElement('.news__meta-author', newsClone).textContent = item.author || item.source.name;
       getExistentElement('.news__meta-date', newsClone).textContent = item.publishedAt
