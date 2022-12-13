@@ -24,7 +24,7 @@ class Sources {
         fragment.append(sourceClone);
       });
 
-    getExistentElement('.sources').append(fragment);
+    source.append(fragment);
   }
 }
 
