@@ -1,6 +1,6 @@
 import AppLoader from './appLoader';
 import { isHTMLElement } from '../../base/funstions';
-import { Callback } from '../../base/interfaces';
+import { Callback } from '../../base/interfacesAndTypes';
 
 class AppController extends AppLoader {
   public getSources(callback: Callback): void {

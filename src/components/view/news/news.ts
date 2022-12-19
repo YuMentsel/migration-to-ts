@@ -1,5 +1,5 @@
 import './news.css';
-import { Articles } from '../../../base/interfaces';
+import { Articles } from '../../../base/interfacesAndTypes';
 import { isHTMLElement, getExistentElement } from '../../../base/funstions';
 
 class News {

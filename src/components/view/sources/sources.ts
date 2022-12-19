@@ -1,12 +1,12 @@
 import './sources.css';
-import { SourcesData } from '../../../base/interfaces';
-import { isHTMLElement, getExistentElement, getExistentInputElement } from '../../../base/funstions';
+import { SourcesData } from '../../../base/interfacesAndTypes';
+import { isHTMLElement, getExistentElement } from '../../../base/funstions';
 
 class Sources {
   draw(data: SourcesData[]): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const sourceItemTemp: HTMLTemplateElement = getExistentElement<HTMLTemplateElement>('#sourceItemTemp');
-    const filterInputValue: string = getExistentInputElement('.filter__input').value.toLowerCase().trim();
+    const filterInputValue: string = getExistentElement<HTMLInputElement>('.filter__input').value.toLowerCase().trim();
     const source: HTMLElement = getExistentElement('.sources');
 
     while (source.firstChild) {

@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { getExistentElement, getExistentInputElement } from '../../base/funstions';
+import { getExistentElement } from '../../base/funstions';
 
 class App {
   private controller: AppController;
@@ -16,7 +16,7 @@ class App {
       this.controller.getNews(e, (data) => this.view.drawNews(data))
     );
     this.controller.getSources((data) => this.view.drawSources(data));
-    const filterInput: HTMLInputElement = getExistentInputElement('.filter__input');
+    const filterInput: HTMLInputElement = getExistentElement<HTMLInputElement>('.filter__input');
     filterInput.addEventListener('input', () => this.controller.getSources((data) => this.view.drawSources(data)));
   }
 }

@@ -1,6 +1,5 @@
-import { ConfigResponse, Options, ResponseObject, Callback } from '../../base/interfaces';
+import { ConfigResponse, Options, ResponseObject, Callback, Method } from '../../base/interfacesAndTypes';
 import { ErrorCode } from '../../base/enam';
-import { Method } from '../../base/types';
 
 class Loader {
   private baseLink: string;

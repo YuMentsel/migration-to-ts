@@ -8,12 +8,6 @@ interface SourcesData {
   country: string;
 }
 
-interface SourcesResponse {
-  status: string;
-  totalResults: number;
-  sources: SourcesData[];
-}
-
 interface ArticleSource {
   id: string | null;
   name: string;
@@ -30,11 +24,16 @@ interface Articles {
   content: string;
 }
 
-interface NewsResponse {
+interface ResponseObject {
   status: string;
   titalResults: number;
+  sources: SourcesData[];
   articles: Articles[];
 }
+
+type SourcesResponse = Pick<ResponseObject, 'status' | 'titalResults' | 'sources'>;
+
+type NewsResponse = Pick<ResponseObject, 'status' | 'titalResults' | 'articles'>;
 
 interface ConfigResponse {
   endpoint: 'sources' | 'everything';
@@ -45,10 +44,20 @@ interface Options {
   [key: string]: string;
 }
 
-interface ResponseObject extends NewsResponse, SourcesResponse {}
-
 interface Callback {
   <T extends ResponseObject>(data: T): void;
 }
 
-export { SourcesResponse, SourcesData, NewsResponse, Articles, ConfigResponse, Options, ResponseObject, Callback };
+type Method = 'GET' | 'POST';
+
+export {
+  SourcesResponse,
+  SourcesData,
+  NewsResponse,
+  Articles,
+  ConfigResponse,
+  Options,
+  ResponseObject,
+  Callback,
+  Method,
+};
